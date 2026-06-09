@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Zara Nazwa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #eef4ff;
+      color: #1e2a44;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    header {
+      height: 100vh;
+      background:
+        linear-gradient(rgba(15, 76, 189, 0.45), rgba(15, 76, 189, 0.45)),
+        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 22px;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background: #0f4cbd;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #dbeafe;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 0;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: white;
+      padding: 35px;
+      margin-bottom: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(15, 76, 189, 0.10);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #0f4cbd;
+      font-size: 35px;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 4px solid #0f4cbd;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    ul li {
+      margin: 12px 0;
+    }
+
+    /* ── PROJECT ── */
+    .project {
+      background: #f4f8ff;
+      padding: 20px;
+      border-left: 6px solid #0f4cbd;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+
+    .project h3 {
+      color: #0b3d91;
+      margin-bottom: 10px;
+    }
+
+    /* ── FAVORITE THINGS GRID ── */
+    .favorite-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .fav-card {
+      background: #f4f8ff;
+      border-left: 6px solid #0f4cbd;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fav-card h3 {
+      color: #0b3d91;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .fav-card p {
+      font-size: 14px;
+      color: #1e2a44;
+      flex: 1;
+    }
+
+    /* toggle button inside fav-card */
+    .fav-card .toggle-btn {
+      align-self: flex-start;
+      margin-top: 0;
+      margin-bottom: 12px;
+      padding: 8px 18px;
+      font-size: 14px;
+    }
+
+    /* musik list */
+    .musik-list {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .musik-list a {
+      color: #0f4cbd;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .musik-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* negara impian image */
+    .negara-img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      margin-top: 10px;
+    }
+
+    /* ── HEALING PHOTOS ── */
+    .healing-photos {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .healing-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .healing-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .healing-item span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0b3d91;
+    }
+
+    /* ── TECH BADGES ── */
+    .tech-badges {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .tech-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      gap: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .tech-badge.html  { background: #e34f26; color: white; }
+    .tech-badge.css   { background: #264de4; color: white; }
+    .tech-badge.js    { background: #f7df1e; color: #1e2a44; }
+
+    .tech-icon {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .tech-name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* ── BUTTON ── */
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      background: #0f4cbd;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #083b96;
+      transform: scale(1.05);
+    }
+
+    /* ── CONTACT ── */
+    .contact p {
+      margin: 10px 0;
+    }
+
+    .contact a {
+      color: #0f4cbd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0f4cbd;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    /* ── BUKU TAMU ── */
+    .tamu-box {
+      background: #f4f8ff;
+      border-left: 5px solid #0f4cbd;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 15px;
+      animation: fade 0.5s ease;
+      box-shadow: 0 5px 15px rgba(15, 76, 189, 0.08);
+    }
+
+    .tamu-box h3 {
+      color: #0f4cbd;
+      margin-bottom: 10px;
+    }
+
+    .tamu-box p {
+      margin-bottom: 10px;
+    }
+
+    .tamu-box small {
+      color: gray;
+    }
+
+    .tamu-btn {
+      margin-top: 0;
+      margin-right: 10px;
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+
+      .about {
+        flex-direction: column;
+      }
+
+      .about img {
+        width: 100%;
+        height: auto;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      .favorite-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ── LOADING SCREEN ── */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #0f4cbd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #loading-screen.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-name {
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .loader-sub {
+      color: #dbeafe;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    .loader-bar-wrap {
+      width: 200px;
+      height: 4px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .loader-bar {
+      height: 100%;
+      width: 0%;
+      background: white;
+      border-radius: 99px;
+      animation: loadBar 1.8s ease forwards;
+    }
+
+    .loader-dots {
+      margin-top: 20px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .loader-dots span {
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: blink 1.2s infinite;
+    }
+
+    .loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes loadBar {
+      0%   { width: 0%; }
+      60%  { width: 80%; }
+      100% { width: 100%; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <div class="loader-name">Zara Nazwa</div>
+    <div class="loader-sub">Personal Website</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loader-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="hero">
+      <h1>Zara Nazwa</h1>
+      <p>Mahasiswa</p>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#project">Project</a>
+    <a href="#favorite">Favorite</a>
+    <a href="#bukutamu">Buku Tamu</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- TENTANG -->
+    <section id="tentang">
+      <div class="card about">
+
+        <img src="zara.jpg" alt="Zara">
+
+        <div class="about-text">
+          <h2>Tentang Saya</h2>
+
+          <p>
+            Halo! Saya Zara Nazwa, mahasiswa Universitas Samudra
+            Fakultas Sains dan Teknologi Program Studi Informatika.
+            Saya suka belajar desain website, coding, dan membuat
+            tampilan website yang aesthetic, sederhana, serta nyaman dilihat.
+          </p>
+          <p>
+            Website pribadi ini dibuat untuk memenuhi salah satu tugas mata
+            kuliah sekaligus sebagai media untuk melatih kemampuan dalam
+            membuat dan mengembangkan website menggunakan HTML, CSS, dan JavaScript.
+          </p>
+
+          <button onclick="salam()">Klik Salam 💌</button>
+
+          <br><br>
+          <h3>CV</h3>
+
+          <a href="cv zara.jpg" target="_blank">
+            <button>📄 Lihat CV</button>
+          </a>
+          <a href="cv zara.jpg" download>
+            <button>⬇️ Download CV</button>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECT -->
+    <section id="project">
+      <div class="card">
+        <h2>Project Saya</h2>
+
+        <div class="project">
+          <h3>🌐 Website Pribadi</h3>
+          <p>Membuat website pribadi modern menggunakan HTML, CSS, dan JavaScript.</p>
+        </div>
+
+        <div class="project">
+          <h3>🎨 Desain Canva</h3>
+          <p>Mendesain poster, presentasi, dan konten media sosial.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAVORITE THINGS -->
+    <section id="favorite">
+      <div class="card">
+        <h2>Favorite Things</h2>
+
+        <div class="favorite-grid">
+
+          <!-- Musik -->
+          <div class="fav-card">
+            <h3>🎵 Musik</h3>
+            <button class="toggle-btn" onclick="toggleMusik()">Tampilkan Lagu</button>
+            <div class="musik-list" id="musikFavorit">
+              <a href="https://www.youtube.com/results?search_query=penjaga+hati+nadhif+basalamah" target="_blank">🎧 Penjaga Hati</a>
+              <a href="https://www.youtube.com/results?search_query=dibalik+pertanda" target="_blank">🎧 Dibalik Pertanda</a>
+              <a href="https://www.youtube.com/results?search_query=semoga" target="_blank">🎧 Semoga</a>
+              <a href="https://www.youtube.com/results?search_query=tunggu+apalagi+nyoman+paul" target="_blank">🎧 Tunggu Apalagi</a>
+              <a href="https://www.youtube.com/results?search_query=its+you+ali+gatie" target="_blank">🎧 It's You</a>
+              <a href="https://www.youtube.com/results?search_query=senorita+shawn+mendes+camila+cabello" target="_blank">🎧 Señorita</a>
+            </div>
+          </div>
+
+          <!-- Negara Impian -->
+          <div class="fav-card">
+            <h3>🌏 Negara Impian</h3>
+            <button class="toggle-btn" onclick="toggleNegara()">Tampilkan Gambar</button>
+            <div id="negaraImpian" style="display:none;">
+              <img src="negara impian zara.jpeg" alt="Negara Impian" class="negara-img">
+            </div>
+          </div>
+
+          <!-- Healing Time -->
+          <div class="fav-card">
+            <h3>☕ Healing Time</h3>
+            <p></p>
+            <button class="toggle-btn" onclick="toggleHealing()">Tampilkan Foto</button>
+            <div class="healing-photos" id="healingPhotos" style="display:none;">
+              <div class="healing-item">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80" alt="Gunung">
+                <span>🏔️ Gunung</span>
+              </div>
+              <div class="healing-item">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80" alt="Pantai">
+                <span>🏖️ Pantai</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coding -->
+          <div class="fav-card">
+            <h3>💻 Coding</h3>
+            <p></p>
+            <button class="toggle-btn" onclick="toggleCoding()">Tampilkan Teknologi</button>
+            <div class="tech-badges" id="techBadges" style="display:none;">
+              <div class="tech-badge html">
+                <span class="tech-icon">&#60;/&#62;</span>
+                <span class="tech-name">HTML</span>
+              </div>
+              <div class="tech-badge css">
+                <span class="tech-icon">🎨</span>
+                <span class="tech-name">CSS</span>
+              </div>
+              <div class="tech-badge js">
+                <span class="tech-icon">JS</span>
+                <span class="tech-name">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BUKU TAMU -->
+    <section id="bukutamu">
+      <div class="card">
+        <h2>Buku Tamu</h2>
+        <p>Silakan tinggalkan pesan 💌</p>
+        <br>
+
+        <input
+          type="text"
+          id="nama"
+          placeholder="Masukkan nama"
+          style="width:100%; padding:12px; border-radius:10px; border:1px solid #ccc; margin-bottom:15px;">
+
+        <textarea
+          id="pesan"
+          placeholder="Masukkan pesan"
+          rows="4"
+          style="width:100%; padding:12px; border-radius:10px; border:1px solid #ccc;"></textarea>
+
+        <button onclick="tambahTamu()">💌 Kirim Pesan</button>
+
+        <br><br>
+        <div id="listTamu"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- KONTAK -->
+  <section id="kontak">
+    <div class="container">
+      <div class="card contact">
+        <h2>Kontak</h2>
+        <p>📧 Email : <a href="mailto:zaranazwa33@gmail.com">zaranazwa33@gmail.com</a></p>
+        <p>📷 Instagram : <a href="https://www.instagram.com/zaranazwa10/" target="_blank">@zaranazwa10</a></p>
+        <p>📍 Lokasi : Aceh, Indonesia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Zara Nazwa | Personal Website</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // LOADING SCREEN
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const screen = document.getElementById("loading-screen");
+        screen.classList.add("hide");
+        setTimeout(() => screen.remove(), 600);
+      }, 2000);
+    });
+
+    function salam() {
+      alert("Haiii Terima kasih sudah mengunjungi website saya");
+    }
+
+    /* ── TOGGLE MUSIK ── */
+    function toggleMusik() {
+      const musik = document.getElementById("musikFavorit");
+      const btn = event.currentTarget;
+      const isHidden = musik.style.display === "none" || musik.style.display === "";
+      musik.style.display = isHidden ? "flex" : "none";
+      btn.textContent = isHidden ? "Sembunyikan Lagu" : "Tampilkan Lagu";
+    }
+
+    /* ── TOGGLE NEGARA ── */
+    function toggleNegara() {
+      const gambar = document.getElementById("negaraImpian");
+      const btn = event.currentTarget;
+      const isHidden = gambar.style.display === "none" || gambar.style.display === "";
+      gambar.style.display = isHidden ? "block" : "none";
+      btn.textContent = isHidden ? "Sembunyikan Gambar" : "Tampilkan Gambar";
+    }
+
+    /* ── BUKU TAMU ── */
+    /* ── TOGGLE HEALING ── */
+    function toggleHealing() {
+      const el  = document.getElementById("healingPhotos");
+      const btn = event.currentTarget;
+      const show = el.style.display === "none" || el.style.display === "";
+      el.style.display  = show ? "flex" : "none";
+      btn.textContent   = show ? "Sembunyikan Foto" : "Tampilkan Foto";
+    }
+
+    /* ── TOGGLE CODING ── */
+    function toggleCoding() {
+      const el  = document.getElementById("techBadges");
+      const btn = event.currentTarget;
+      const show = el.style.display === "none" || el.style.display === "";
+      el.style.display  = show ? "flex" : "none";
+      btn.textContent   = show ? "Sembunyikan Teknologi" : "Tampilkan Teknologi";
+    }
+
+    function tambahTamu() {
+      const nama  = document.getElementById("nama").value.trim();
+      const pesan = document.getElementById("pesan").value.trim();
+
+      if (nama === "" || pesan === "") {
+        alert("Nama dan pesan wajib diisi!");
+        return;
+      }
+
+      const tanggal = new Date().toLocaleString();
+      const box = document.createElement("div");
+      box.classList.add("tamu-box");
+
+      box.innerHTML = `
+        <h3>👤 ${nama}</h3>
+        <p>${pesan}</p>
+        <small>${tanggal}</small>
+        <br><br>
+        <button class="tamu-btn" onclick="editTamu(this)">Edit</button>
+        <button class="tamu-btn" onclick="hapusTamu(this)">Hapus</button>
+      `;
+
+      document.getElementById("listTamu").appendChild(box);
+      document.getElementById("nama").value  = "";
+      document.getElementById("pesan").value = "";
+    }
+
+    function hapusTamu(button) {
+      if (confirm("Yakin ingin menghapus pesan ini?")) {
+        button.parentElement.remove();
+      }
+    }
+
+    function editTamu(button) {
+      const box      = button.parentElement;
+      const namaLama  = box.querySelector("h3").innerText.replace("👤 ", "");
+      const pesanLama = box.querySelector("p").innerText;
+
+      const namaBaru  = prompt("Edit Nama",  namaLama);
+      const pesanBaru = prompt("Edit Pesan", pesanLama);
+
+      if (namaBaru !== null && pesanBaru !== null) {
+        box.querySelector("h3").innerHTML = "👤 " + namaBaru;
+        box.querySelector("p").innerText  = pesanBaru;
+      }
+    }
+
+  </script>
+</body>
+</html>
